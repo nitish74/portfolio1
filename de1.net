@@ -1,0 +1,30 @@
+using System;
+class nk
+{
+public static int d(string a, int k)
+{
+    int ans = 0;
+    int []cnt = new int[26];
+    int i, j, n = a.Length;
+    for (i = 0; i < n; i++)
+    {
+        Array.Clear(cnt, 0, cnt.Length);
+        for (j = i; j < n; j++)
+        {
+            cnt[a[j] - 'a']++;
+            if (cnt[a[j] - 'a'] <= k)
+                ans++;
+            else
+                break;
+        }
+    }
+    return ans;
+}
+public static int Main()
+{
+    string a = "aaabbccdd";
+    int k = 4;
+    Console.WriteLine(d(a, k));
+    return 0;
+}
+}
